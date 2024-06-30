@@ -2,6 +2,7 @@ package com.donatoordep.challenge_03.services;
 
 import com.donatoordep.challenge_03.dto.PasswordRegisterRequestDTO;
 import com.donatoordep.challenge_03.dto.PasswordRegisterResponseDTO;
+import com.donatoordep.challenge_03.exceptions.ONBPasswordNotContainsMinimumCharactersException;
 import com.donatoordep.challenge_03.mappers.PasswordMapper;
 import com.donatoordep.challenge_03.repositories.PasswordRepository;
 import com.donatoordep.challenge_03.services.validations.password.annotations.RegisterPasswordValidate;

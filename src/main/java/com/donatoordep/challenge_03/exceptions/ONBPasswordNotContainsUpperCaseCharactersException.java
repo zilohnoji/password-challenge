@@ -1,6 +1,10 @@
 package com.donatoordep.challenge_03.exceptions;
 
-public class ONBPasswordNotContainsUpperCaseCharactersException extends RuntimeException implements SpecificationException {
+import com.donatoordep.challenge_03.services.validations.password.PasswordValidator;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ONBPasswordNotContainsUpperCaseCharactersException extends RuntimeException implements SpecificationException, PasswordValidator {
 
     private static final long serialVersionUID = -5796161444883837156L;
     private static final String ERROR = "the password does not contain upper case characters";
@@ -18,5 +22,12 @@ public class ONBPasswordNotContainsUpperCaseCharactersException extends RuntimeE
     @Override
     public String getError() {
         return ERROR;
+    }
+
+    @Override
+    public void validate(String password) throws RuntimeException {
+        if (!containUpperCaseChar(password)) {
+            throw new ONBPasswordNotContainsUpperCaseCharactersException();
+        }
     }
 }
